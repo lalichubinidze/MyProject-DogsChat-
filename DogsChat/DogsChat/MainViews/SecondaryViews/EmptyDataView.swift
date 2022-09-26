@@ -45,5 +45,4 @@ class EmptyDataView: UIView {
     @IBAction func reloadBtnPressed(_ sender: Any) {
         delegate?.didClickReloadButton()
     }
-    
 }

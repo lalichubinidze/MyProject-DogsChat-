@@ -110,7 +110,6 @@ class UserProfileTableViewController: UITableViewController {
         sectionTwoView.layer.cornerRadius = 10
         sectionThreeView.layer.cornerRadius = 10
         sectionFourView.layer.cornerRadius = 10
-
     }
 
     private func updateUIForMatchedUser() {
@@ -124,7 +123,6 @@ class UserProfileTableViewController: UITableViewController {
         let messageButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(startChatButtonPressed))
 
         self.navigationItem.rightBarButtonItem = isMatchedUser ? messageButton : nil
-
     }
 
     //MARK: - Show user profile
@@ -156,7 +154,6 @@ class UserProfileTableViewController: UITableViewController {
         let avatar = userObject!.avatar ?? UIImage(named: placeholder)
 
         allImages = [avatar!]
-        //show page control
         self.setPageControlPages()
 
         self.collectionView.reloadData()
@@ -271,7 +268,6 @@ extension UserProfileTableViewController: UICollectionViewDelegateFlowLayout {
 
         return sectionInsets.left
     }
-
 }
 extension UserProfileTableViewController : MatchViewControllerDelegate {
     func didClickSendMessage(to user: FUser) {
@@ -282,7 +278,6 @@ extension UserProfileTableViewController : MatchViewControllerDelegate {
     }
 
     func didClickKeepSwiping() {
-        print("swipe")
         updateLikeButtonStatus()
     }
 }

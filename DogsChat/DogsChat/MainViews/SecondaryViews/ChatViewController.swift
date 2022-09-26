@@ -140,7 +140,6 @@ final class ChatViewController: MessagesViewController {
     }
     private func messageSend(text: String?, photo: UIImage?) {
         OutgoingMessage.send(chatId: chatId, text: text, photo: photo, memberIds: [FUser.currentId(), recipientId])
-
     }
 
     //MARK: - Donwload chatss
@@ -227,9 +226,7 @@ updateChatListener = FirebaseReference(.Messages).document(FUser.currentId()).co
                     self.messagesCollectionView.reloadData()
                 }
             }
-
         }
-
     }
 
     //MARK: - InsertMessages

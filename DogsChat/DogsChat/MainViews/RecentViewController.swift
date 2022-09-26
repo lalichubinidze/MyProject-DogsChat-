@@ -33,13 +33,11 @@ final class RecentViewController: UIViewController {
                     self.recentMatches = allUsers
 
                     DispatchQueue.main.async {
-                        //nide notification spiner
                         self.collectionView.reloadData()
                     }
                 }
             } else {
                 print("No matches")
-                //nnote show activity indicator result
             }
         }
     }
@@ -51,7 +49,6 @@ final class RecentViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-
     }
 
     //MARK: - Navigation
@@ -96,9 +93,7 @@ extension RecentViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let recent = self.recentChats[indexPath.row]
-            //delete from firebase
             recent.deleteRecent()
-            //delete form tableView
             self.recentChats.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -119,7 +114,6 @@ extension RecentViewController: UICollectionViewDataSource {
         }
         return cell
     }
-
 }
 
 extension RecentViewController: UICollectionViewDelegate {

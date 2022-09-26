@@ -27,7 +27,7 @@ final class CardViewController: UIViewController {
 
         showEmptyDataView(loading: true)
         emptyDataView.delegate = self
-    //   createUsers()
+        createUsers()
 
 //        let user = FUser.currentUser()!
 //        user.likedIdArray = []
@@ -170,13 +170,9 @@ final class CardViewController: UIViewController {
             saveLikeToUser(userId: userId)
         }
 
-        // fetch likes
-
         FirebaseListener.shared.checkIfUserLikedUs(userId: userId) { (didLike) in
 
             if didLike {
-                print("create a natch")
-                // show the match view
                 FirebaseListener.shared.saveMatch(userId: userId)
                 self.showMatchView(userId: userId)
             }
@@ -188,7 +184,6 @@ final class CardViewController: UIViewController {
         let chatview = ChatViewController(chatId: chatRoomId, recipientId: user.objectId, recipientName: user.username)
         chatview.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(chatview, animated: true)
-
     }
 }
 
@@ -223,7 +218,6 @@ extension CardViewController: SwipeCardStackDelegate, SwipeCardStackDataSource {
         if secondCardModel.isEmpty {
             showEmptyDataView(loading: false)
         }
-
     }
 
     func cardStack(_ cardStack: SwipeCardStack, didSwipeCardAt index: Int, with direction: SwipeDirection) {
@@ -270,6 +264,5 @@ extension CardViewController: EmptyDataViewDelegate {
         donwloadInitialUsers()
         emptyDataView.reloadBtn.isEnabled = false
     }
-
 }
 
